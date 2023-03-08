@@ -18,3 +18,14 @@ function d ($value = null, $die = 1) {
 
     if ($die) die;
 }
+
+function createSmartyResponseArray ($response) {
+    if (!$response) return false;
+    $smartyResponse = array();
+
+    while ($row = mysqli_fetch_assoc($response)) {
+        $smartyResponse[] = $row;
+    }
+
+    return $smartyResponse;
+}
